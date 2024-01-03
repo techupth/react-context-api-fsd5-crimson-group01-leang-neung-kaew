@@ -3,6 +3,9 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage.jsx";
 import ViewProductPage from "./pages/ViewProductPage.jsx";
+import React from "react";
+
+export const userDataContext = React.createContext();
 
 function App() {
   const userData = {
@@ -13,12 +16,18 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/view/:id" element={<ViewProductPage />} />
-        </Routes>
-      </Router>
+      <userDataContext.Provider
+        value={{
+          user: userData,
+        }}
+      >
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/view/:id" element={<ViewProductPage />} />
+          </Routes>
+        </Router>
+      </userDataContext.Provider>
     </div>
   );
 }
