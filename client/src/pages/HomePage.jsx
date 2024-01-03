@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import AppHeader from "../components/AppHeader";
+import AppHeader from "../components/AppHeader.jsx";
 import products from "../data/products.js";
 
 function HomePage() {
